@@ -69,8 +69,8 @@ names(extractedData2) <- gsub("^f", "Frequency-", names(extractedData2))
 ######         the average of each variable for each activity and each subject.
 
     #create dataset 'tidyData' with means on each variable 'activity' and 'subject'
-tidyData <- aggregate(. ~ subject + activity, extractedData2, mean)
-tidyData <- tidyData[order(tidyData$subject, tidyData$activity),]
+tidyData <- aggregate(. ~ subject + activity_desc, extractedData2, mean)
+tidyData <- tidyData[order(tidyData$subject, tidyData$activity_desc),]
 
     #write dataset 'tidyData' with means on each variable 'activity' and 'subject'
 write.table(tidyData, "tidyData.txt", row.name=FALSE)
